@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "MoreStoneScript": {
+    "StoneStoryQoL": {
       "commandName": "Executable",
       "executablePath": "F:\\Apps\\Steam\\steamapps\\common\\Stone Story RPG\\Stone Story.exe",
       "workingDirectory": "F:\\Apps\\Steam\\steamapps\\common\\Stone Story RPG"
