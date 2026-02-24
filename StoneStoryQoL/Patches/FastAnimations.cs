@@ -5,9 +5,9 @@ using System.Reflection.Emit;
 
 namespace StoneStoryQoL.Patches;
 
-[HarmonyPatch(typeof(FissureStoneScreen), nameof(FissureStoneScreen.UpdateTic))]
-public static class FastBreak
+public static class FastAnimations
 {
+    [HarmonyPatch(typeof(FissureStoneScreen), nameof(FissureStoneScreen.UpdateTic))]
     [HarmonyTranspiler]
     private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
@@ -43,5 +43,23 @@ public static class FastBreak
             }
         }
         return codes.AsEnumerable();
+    }
+
+    [HarmonyPatch(typeof(OpenTreasureDialog), nameof(OpenTreasureDialog.UpdateTic))]
+    [HarmonyPrefix]
+    private static void UpdateTic(OpenTreasureDialog __instance)
+    {
+        if (__instance.currentIsLostItem)
+            __instance.treasureStateElapsedTics += 9;
+        else
+            __instance.treasureStateElapsedTics += 19;
+        __instance.autoSkip = true;
+    }
+
+    [HarmonyPatch(typeof(TriskelionScreen), nameof(TriskelionScreen.UpdateTic))]
+    [HarmonyPrefix]
+    private static void UpdateTic(TriskelionScreen __instance)
+    {
+        __instance.elapsedTriskelionStateTics += 59;
     }
 }

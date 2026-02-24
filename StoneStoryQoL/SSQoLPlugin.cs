@@ -23,15 +23,12 @@ public class SSQoLPlugin : BaseUnityPlugin
 
         try
         {
-            Harmony.PatchAll(typeof(MoreStoneScript));
-            Harmony.PatchAll(typeof(TickTime));
-
-            if (SSQoLConfig.Fast_Break.Value)
-                Harmony.PatchAll(typeof(FastBreak));
-            if (SSQoLConfig.Fast_Fuse.Value)
-                Harmony.PatchAll(typeof(FastFuse));
-            if (SSQoLConfig.Fast_Chest.Value)
-                Harmony.PatchAll(typeof(FastChest));
+            if (SSQoLConfig.FastAnimations.Value)
+                Harmony.PatchAll(typeof(FastAnimations));
+            if (SSQoLConfig.MoreStoneScript.Value)
+                Harmony.PatchAll(typeof(MoreStoneScript));
+            if (SSQoLConfig.UncapGameSpeed.Value)
+                Harmony.PatchAll(typeof(UncapGameSpeed));
 
             Logger.LogInfo($"PluginName: {PluginName}, VersionString: {VersionString} is loaded.");
         }

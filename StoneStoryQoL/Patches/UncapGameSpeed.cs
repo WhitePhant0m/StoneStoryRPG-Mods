@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace StoneStoryQoL.Patches;
 
-internal class TickTime
+internal class UncapGameSpeed
 {
     [HarmonyPatch(typeof(SlowMotion), nameof(SlowMotion.Update))]
     [HarmonyPrefix]

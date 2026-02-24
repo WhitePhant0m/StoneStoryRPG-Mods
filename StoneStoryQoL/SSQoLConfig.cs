@@ -9,9 +9,9 @@ public class SSQoLConfig
 
     private const string catGeneral = "General";
 
-    public static ConfigEntry<bool> Fast_Break;
-    public static ConfigEntry<bool> Fast_Fuse;
-    public static ConfigEntry<bool> Fast_Chest;
+    public static ConfigEntry<bool> FastAnimations;
+    public static ConfigEntry<bool> MoreStoneScript;
+    public static ConfigEntry<bool> UncapGameSpeed;
 
     public static void Start()
     {
@@ -20,10 +20,9 @@ public class SSQoLConfig
 
     public static void InitConfig()
     {
-        Fast_Break = ConfigFile.Bind(catGeneral, "FastBreak", true, "Fissure stone breaks items apart really fast.");
-        Fast_Fuse = ConfigFile.Bind(catGeneral, "FastFuse", true, "Triskellion stone fuses enchantments really fast." +
-            "\nNOTE: If only using level 1 enchants, It can still take a long time to fuse." +
-            "\nThis only speeds up the animation. Later I'll try to see if I can somehow make fusing happen in bulk.");
-        Fast_Chest = ConfigFile.Bind(catGeneral, "FastChest", true, "Open chests much faster.");
+        FastAnimations = ConfigFile.Bind(catGeneral, "FastAnimations", true, "Speed up animations for fissure stone, triskellion stone, and opening chests." +
+            "\nNOTE: This only speeds up the animation. Later I'll try to see if I can somehow make fusing happen in bulk.");
+        MoreStoneScript = ConfigFile.Bind(catGeneral, "MoreStoneScript", true, "Adds more functions and variables to Stonescript.");
+        UncapGameSpeed = ConfigFile.Bind(catGeneral, "UncapGameSpeed", true, "Removes the cap on game speed.");
     }
 }
